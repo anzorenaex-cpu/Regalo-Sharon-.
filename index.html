@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Sharon 💜</title>
+    <style>
+        :root {
+            --bts-purple: #8A2BE2;
+            --bts-dark: #0f051d;
+            --bts-light: #d8b4fe;
+            --bts-pink: #f472b6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bts-dark) 0%, #1a0b2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Contenedor principal estilo tarjeta */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(216, 180, 254, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        h1 {
+            color: var(--bts-light);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        }
+
+        p.subtitle {
+            color: #a78bfa;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        /* Estilo de imagen/foto principal */
+        .photo-frame {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            border: 3px solid var(--bts-pink);
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(244, 114, 182, 0.4);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Reproductor interactivo */
+        .music-player {
+            background: rgba(138, 43, 226, 0.15);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .music-info {
+            font-size: 0.85rem;
+            color: var(--bts-light);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        audio {
+            width: 100%;
+            height: 35px;
+            border-radius: 20px;
+        }
+
+        /* Botón interactivo */
+        .btn-surprise {
+            background: linear-gradient(45deg, var(--bts-purple), var(--bts-pink));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-surprise:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(244, 114, 182, 0.6);
+        }
+
+        /* Carta de mensaje desplegable */
+        .letter {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 4px solid var(--bts-pink);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #e9d5ff;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Corazones flotantes de fondo */
+        .heart {
+            position: absolute;
+            color: var(--bts-purple);
+            font-size: 20px;
+            user-select: none;
+            pointer-events: none;
+            animation: float 6s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #a78bfa;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="photo-frame">
+            <!-- Foto icónica de BTS -->
+            <img src="https://i.pinimg.com/564x/4b/33/88/4b3388713123896263b655a697666249.jpg" alt="BTS">
+        </div>
+
+        <h1>¡Hola Sharon! 💜</h1>
+        <p class="subtitle">Te hice este detalle especial</p>
+
+        <!-- Reproductor de Música - BTS Dynamite -->
+        <div class="music-player">
+            <p class="music-info">🎵 BTS - Dynamite 🎵</p>
+            <audio controls autoplay loop>
+                <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=pop-dance-110826.mp3" type="audio/mpeg">
+                Tu navegador no soporta el reproductor de audio.
+            </audio>
+        </div>
+
+        <!-- Botón para ver la carta -->
+        <button class="btn-surprise" onclick="toggleLetter()">Toca aquí ✨</button>
+
+        <!-- Mensaje directo y divertido -->
+        <div class="letter" id="secretLetter">
+            <p>Para que veas lo mucho que te quiero jajaja 💜</p>
+            <br>
+            <p>¿Te gustó el regalo? ✨</p>
+        </div>
+    </div>
+
+    <footer>Hecho especialmente para ti 💜</footer>
+
+    <script>
+        function toggleLetter() {
+            const letter = document.getElementById('secretLetter');
+            if (letter.style.display === 'block') {
+                letter.style.display = 'none';
+            } else {
+                letter.style.display = 'block';
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '💜';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            heart.style.fontSize = Math.random() * 15 + 15 + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
